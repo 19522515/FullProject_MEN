@@ -1,0 +1,23 @@
+<div class="container mt-5">
+    <a type="button" class="btn btn-primary btn-lg" href="/category/add">Thêm loại sản phẩm</a>
+    <h1>Danh sách các loại sản phẩm</h1>
+    <table class="table table-hover">
+        <tr>
+            <th>Tên Loại Sản Phẩm</th>
+            <th>Sửa </th>
+            <th>Xóa</th>
+        </tr>
+        <%
+        categories.map(cate=>{%>
+            <tr>
+                <td><%=  cate.name %></td>
+                <td><a href="/category/edit/<%= cate._id %>" class="btn btn-warning">Sửa</a></td>
+                <td>
+                   <%- include('../part/deleteForm',{url:`/category/delete/${cate._id}`}) %>
+                </td>
+            </tr>
+        <%})
+        %>
+        
+    </table>
+</div>

@@ -1,0 +1,21 @@
+.navbar{
+    background: #48dbfb !important;
+    color:#fff !important;
+}
+.navbar  a{
+    font-weight: 500;
+    color:#fff !important;
+}
+.footer-main{
+    background: #222f3e;
+    color:#fff;
+    padding:20px;
+
+}
+.footer-main a{
+    color:#fff;
+    text-decoration: none;
+}
+.main{
+    min-height: 80vh;
+}
