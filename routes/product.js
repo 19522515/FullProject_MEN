@@ -5,7 +5,7 @@ const router=express.Router()
 router.get('/',async(req,res)=>{
     try{
         const products=await productModel.find().populate('category',['name'])
-        console.log(products)
+
         res.render('products/list',{products:products})
     }catch(e){
         console.log(e)
@@ -36,6 +36,13 @@ router.post('/',async(req,res)=>{
             price:req.body.price,
             category:req.body.category,
         })
+        if(req.body.name != null && req.body.image !=='')
+        {
+            const imageEncode=JSON.parse(req.body.image)
+            productNew.imageType=imageEncode.type
+            productNew.imageData=new Buffer.from(imageEncode.data,'base64')
+        }
+      
         await productNew.save()
         res.redirect('/product')
     }catch(e){

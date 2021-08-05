@@ -6,11 +6,6 @@ const productRouter=require('./routes/product')
 const mongose=require('mongoose')
 const app=express()
 
-app.set('view engine', 'ejs')
-app.use(expressLayouts);
-app.set('layout','layouts/layout')
-app.use(express.static('public'))
-app.use(express.urlencoded({ extended: false }))
 
 const connectFunction=async()=>{
     try{
@@ -28,6 +23,14 @@ const connectFunction=async()=>{
 }
 
 connectFunction()
+app.use(express.urlencoded({ extended: false,limit:'10mb'}))
+
+app.set('view engine', 'ejs')
+app.use(expressLayouts);
+
+app.set('layout','layouts/layout')
+app.use(express.static('public'))
+app.use(express.urlencoded({ extended: false }))
 app.use('/',indexRouter)
 app.use('/category',categoryRouter)
 app.use('/product',productRouter)
