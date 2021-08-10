@@ -1,7 +1,7 @@
 const mongoose=require('mongoose')
 const productModel=require('./product.model')
 const categorySchema=new mongoose.Schema({
-    name:{type:String,required:true,default:"Bánh Tráng"}
+    name:{type:String,required:true,default:"Bánh Tráng Nướng Đà Lạt"}
 },{timestamps:true})
 
 categorySchema.pre('remove',async function(next){

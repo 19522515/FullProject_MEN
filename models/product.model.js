@@ -1,7 +1,7 @@
 const mongoose=require('mongoose')
 const productSchema=new mongoose.Schema({
-    name:{type:String,required:true,default:"Bánh Tráng"},
-    info:{type:String,default:"Rau củ quả rất sạch từ bách hóa xanh"},
+    name:{type:String,required:true,default:"Bánh Tráng Nướng Đà Lạt"},
+    info:{type:String,default:"Rau củ quả rất sạch từ đà lạt"},
     price:{type:Number,default:20000},
     quantity:{type:Number,default:5},
     category:{type:mongoose.Schema.Types.ObjectId,ref:"category"},

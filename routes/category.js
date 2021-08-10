@@ -17,7 +17,7 @@ router.get('/add',(req,res)=>{
 })
 router.get('/edit/:id',async(req,res)=>{
     try{
-        const category=await categoryModel.findById(req.params.id)
+        const category=categoryModel.findById(req.params.id)
         res.render('categories/edit',{category:category})
     }catch(e){
         console.log(e)
@@ -37,8 +37,6 @@ router.post('/',async(req,res)=>{
         res.redirect('/')
     }
 })
-
-
 router.post('/delete/:id',async(req,res)=>{
     try{
         const categoryDelete=await categoryModel.findById(req.params.id)

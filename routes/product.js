@@ -9,8 +9,26 @@ router.get('/',async(req,res)=>{
         res.render('products/list',{products:products})
     }catch(e){
         console.log(e)
-        res.redirect('/')
-    }
+        res.redirect('/')}
+})
+router.post('/',async(req,res)=>{
+    try{
+        const productNew=new productModel({
+            name:req.body.name,
+            info:req.body.info,
+            quantity:req.body.quantity,
+            price:req.body.price,
+            category:req.body.category,})
+        if(req.body.name != null && req.body.image !=='')
+        {
+            const imageEncode=JSON.parse(req.body.image)
+            productNew.imageType=imageEncode.type
+            productNew.imageData=new Buffer.from(imageEncode.data,'base64')}
+        await productNew.save()
+        res.redirect('/product')
+    }catch(e){
+        console.log(e)
+        res.redirect('/')}
 })
 router.get('/add',async(req,res)=>{
     const product=new productModel()
@@ -23,32 +41,7 @@ router.get('/edit/:id',async(req,res)=>{
         res.render('categories/edit',{category:category})
     }catch(e){
         console.log(e)
-        res.redirect('/')
-    }
-    
-})
-router.post('/',async(req,res)=>{
-    try{
-        const productNew=new productModel({
-            name:req.body.name,
-            info:req.body.info,
-            quantity:req.body.quantity,
-            price:req.body.price,
-            category:req.body.category,
-        })
-        if(req.body.name != null && req.body.image !=='')
-        {
-            const imageEncode=JSON.parse(req.body.image)
-            productNew.imageType=imageEncode.type
-            productNew.imageData=new Buffer.from(imageEncode.data,'base64')
-        }
-      
-        await productNew.save()
-        res.redirect('/product')
-    }catch(e){
-        console.log(e)
-        res.redirect('/')
-    }
+        res.redirect('/')}
 })
 router.post('/delete/:id',async(req,res)=>{
     try{
@@ -60,6 +53,4 @@ router.post('/delete/:id',async(req,res)=>{
         res.redirect('/')
     }
 })
-
-
 module.exports=router

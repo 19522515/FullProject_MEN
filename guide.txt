@@ -2,3 +2,9 @@
 2.npm install --save-dev nodemon
 3.npm install express-ejs-layouts
 4. npm install express ejs mongoose --save
+
+               //<a href="/cart/reduce/<%= x.id %>" class="reduceCart btn" id="<%= x.id %>">-</a>
+               
+                //<a href="/cart/increase/<%= x.id %>" class="increaseCart btn" id="<%= x.id %>">+</a>
+                
+                    <%- include('../part/deleteForm',{url:`/cart/delete/${x.id}`}) %>

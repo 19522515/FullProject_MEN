@@ -26,10 +26,16 @@
     <select name="category" >
       <%
       categories.map(cate=>{%>
+        <%
+        if(cate._id==product.category){%>
+        <option selected value="<%= cate._id %>"><%= cate.name %></option>
+      <%}
+      else{%>
         <option value="<%= cate._id %>"><%= cate.name %></option>
+      <%}
+      %>
       <%})
       %>
-      
     </select>
     </div>
  

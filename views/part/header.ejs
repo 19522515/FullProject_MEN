@@ -1,19 +1,31 @@
-
-  
 <nav class="navbar-success bg-info ">
-  <div class="container navbar-info bg-info">
-    <header class="d-flex justify-content-center py-3 mb-2 border-bottom ">
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-        <span class="fs-4"><b>Viet's Store</b></span>
-      </a>
+    <div class="container navbar-info bg-info">
+        <header class="d-flex justify-content-center py-3 mb-2 border-bottom ">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+                <span class="fs-4"><b>Viet's Store</b></span>
+            </a>
 
-      <ul class="nav nav-pills">
-        <li class="nav-item"><a  class="nav-link active" aria-current="page" href="/" style="color:yellow;">Trang chủ</a></li>
-        <li class="nav-item"><a  class="nav-link" href="/product" style="color:yellow;">Sản phẩm</a></li>
-        <li class="nav-item"><a  class="nav-link" href="/category" style="color:yellow;">Loại sản phẩm</a></li>
-
-      </ul>
-    </header>
-  </div>
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/" style="color:yellow;">Trang chủ</a></li>
+                <li class="nav-item"><a class="nav-link" href="/product" style="color:yellow;">Sản phẩm</a></li>
+                <li class="nav-item"><a class="nav-link" href="/category" style="color:yellow;">Loại sản phẩm</a></li>
+                <li class="nav-item"><a class="nav-link" href="/cart/" style="color:yellow;">Giỏ hàng
+                        <span id="numCart1">
+                            <span id="numCart2">
+                                <%
+                                if(session.cart){%>
+                                  ( <%= session.cart.items.length %> )
+                                <%}
+                                else{%>
+                                ( 0 )
+                                <%}
+                                %>
+                            </span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </header>
+    </div>
 </nav>

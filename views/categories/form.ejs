@@ -1,9 +1,8 @@
 <div class="form-floating mb-3">
-    <input type="text" required class="form-control" name="name" placeholder="Category Name" 
-    value="<%= category.name %>">
-    <label for="floatingInput">Tên loại sản phẩm </label>
-  </div>
-  
-  <div class="form-floating">
-    <input type="submit" class="form-control btn btn-primary" id="floatingPassword" value="Save">
-  </div>
+  <input type="text" class="form-control" id="floatingInput" placeholder="Category Name" name="name" value="<%= category.name %>">
+  <label for="floatingInput">Category Name</label>
+</div>
+
+<div class="form-floating mt-3">
+  <input type="submit" class="form-control btn btn-outline-success" id="floatingSubmit" value="Submit">
+</div>
